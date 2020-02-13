@@ -1,5 +1,7 @@
 package com.example.transbgr;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -158,11 +160,25 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
     }
 
     public void onArtisteSelected(Artiste artiste) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
+        /*Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(artiste.getFields().getSpotify()));
         intent.putExtra(Intent.EXTRA_REFERRER,
                 Uri.parse("android-app://" + getContext().getPackageName()));
-        startActivity(intent);
+        startActivity(intent);*/
+
+        //loadFragment(new Artiste_detail());
+    }
+
+    public void loadFragment(Fragment fragment) {
+        /*String backStateName = fragment.getClass().getName();
+        FragmentManager fragmentManager = getChildFragmentManager();
+        boolean fragmentPopped = fragmentManager.popBackStackImmediate(backStateName, 0);
+        if (!fragmentPopped) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.recycler_view, fragment);
+            fragmentTransaction.addToBackStack(backStateName);
+            fragmentTransaction.commit();
+        }*/
     }
 
 }
