@@ -81,8 +81,8 @@ import androidx.recyclerview.widget.RecyclerView;
         public void onBindViewHolder(MyViewHolder viewHolder, final int position) {
             final Artiste artiste = artisteListFiltered.get(position);
 
-            if (artiste.getArtistes() != null) {
-                viewHolder.name.setText(artiste.getArtistes());
+            if (artiste.getFields().getArtistes() != null) {
+                viewHolder.name.setText(artiste.getFields().getArtistes());
 
             }
 
@@ -93,7 +93,7 @@ import androidx.recyclerview.widget.RecyclerView;
             return artisteListFiltered.size();
         }
 
-         public void removeArtisteWithId(String uid) {
+        public void removeArtisteWithId(String uid) {
 
          artisteListFiltered.removeIf(artiste ->  (artiste.getUid().equals(uid)) );
          artisteList.removeIf(artiste ->  (artiste.getUid().equals(uid)) );
@@ -135,7 +135,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
                             // name match condition. this might differ depending on your requirement
                             // here we are looking for name or phone number match
-                            if (row.getArtistes().toLowerCase().contains(charString.toLowerCase())) {
+                            if (row.getFields().getArtistes().toLowerCase().contains(charString.toLowerCase())) {
                                 filteredList.add(row);
                             }
                         }
