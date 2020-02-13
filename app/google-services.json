@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "893825671211",
+    "firebase_url": "https://mmm-trans-bgr.firebaseio.com",
+    "project_id": "mmm-trans-bgr",
+    "storage_bucket": "mmm-trans-bgr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893825671211:android:d2487c9b42e9bf83308a6e",
+        "android_client_info": {
+          "package_name": "com.example.transbgr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893825671211-enmf9d78th2d86j76jp60kkblbh79v8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTb2HFLDfsBSBo-O_kAB-AbkPfdFgES9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893825671211-enmf9d78th2d86j76jp60kkblbh79v8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
