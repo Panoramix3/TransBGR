@@ -13,6 +13,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,12 +92,12 @@ import androidx.recyclerview.widget.RecyclerView;
         public int getItemCount() {
             return artisteListFiltered.size();
         }
-        /**
-        public void removeArtisteWithId(String uid) {
 
-            artisteListFiltered.removeIf(artiste ->  (artiste.getUid().equals(uid)) );
-            artisteList.removeIf(artiste ->  (artiste.getUid().equals(uid)) );
-        }
+         public void removeArtisteWithId(String uid) {
+
+         artisteListFiltered.removeIf(artiste ->  (artiste.getUid().equals(uid)) );
+         artisteList.removeIf(artiste ->  (artiste.getUid().equals(uid)) );
+         }
 
 
         public void updateArtiste(Artiste updatedArtiste) {
@@ -105,7 +108,7 @@ import androidx.recyclerview.widget.RecyclerView;
                     .orElse(null);
             if (oldArtiste != null) {
                 artisteListFiltered.set(artisteListFiltered.indexOf(oldArtiste), updatedArtiste);
-                Log.i("TAG","updated likes from DB for "+updatedArtiste.name+" = "+ updatedArtiste.getLikes());
+
             }
 
             oldArtiste = artisteList.stream()
@@ -116,7 +119,7 @@ import androidx.recyclerview.widget.RecyclerView;
                 artisteList.set(artisteList.indexOf(oldArtiste),updatedArtiste);
 
         }
-            **/
+
 
         @Override
         public Filter getFilter() {
