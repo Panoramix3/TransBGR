@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ArtistesAdapter.A
         mFireDataBase = FirebaseDatabase.getInstance();
 
         // STEP 2.1: and from the DB, get a reference on the child node "artistes"
-        mArtistesDatabaseReference = mFireDataBase.getReference().child("artistes");
+        mArtistesDatabaseReference = mFireDataBase.getReference();
 
         // STEP 2.2: get the recycler view
         recyclerView = findViewById(R.id.recycler_view);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements ArtistesAdapter.A
 
     // STEP 3: enable adding a artiste to Firebase
     public void activateAddingArtiste() {
-        /*FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.myFAB);
+       /* FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.myFAB);
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -98,15 +98,15 @@ public class MainActivity extends AppCompatActivity implements ArtistesAdapter.A
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                     Artiste artiste = dataSnapshot.getValue(Artiste.class);
                     artiste.setUid(dataSnapshot.getKey());
-                    //mAdapter.(artiste);
-                    //mAdapter.notifyDataSetChanged();
+                    mAdapter.updateArtiste(artiste);
+                    mAdapter.notifyDataSetChanged();
                 }
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    //Artiste msg = dataSnapshot.getValue(Artiste.class);
-                    // don't forget to set the key to identify the Artiste!
-                    //mAdapter.removeArtisteWithId(dataSnapshot.getKey());
-                    //mAdapter.notifyDataSetChanged();
+                    Artiste msg = dataSnapshot.getValue(Artiste.class);
+                    //don't forget to set the key to identify the Artiste!
+                    mAdapter.removeArtisteWithId(dataSnapshot.getKey());
+                    mAdapter.notifyDataSetChanged();
                 }
                 @Override
                 public void onChildMoved(DataSnapshot dataSnapshot, String s) {
