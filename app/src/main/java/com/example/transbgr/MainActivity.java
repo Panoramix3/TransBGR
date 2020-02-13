@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -145,6 +147,10 @@ public class MainActivity extends AppCompatActivity implements ArtistesAdapter.A
 
     @Override
     public void onArtisteSelected(Artiste artiste) {
-
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(artiste.getFields().getSpotify()));
+        intent.putExtra(Intent.EXTRA_REFERRER,
+                Uri.parse("android-app://" + getApplicationContext().getPackageName()));
+        startActivity(intent);
     }
 }
