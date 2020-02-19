@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 public class Artiste_detail extends Fragment {
 
-    private ArtisteDetailViewModel mViewModel;
+
 
     public static Artiste_detail newInstance() {
         return new Artiste_detail();
@@ -29,7 +29,7 @@ public class Artiste_detail extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(ArtisteDetailViewModel.class);
+
         // TODO: Use the ViewModel
     }
 

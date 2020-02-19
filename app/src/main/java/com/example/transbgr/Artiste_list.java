@@ -170,7 +170,7 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
     }
 
     public void loadFragment(Fragment fragment) {
-        /*String backStateName = fragment.getClass().getName();
+        String backStateName = fragment.getClass().getName();
         FragmentManager fragmentManager = getChildFragmentManager();
         boolean fragmentPopped = fragmentManager.popBackStackImmediate(backStateName, 0);
         if (!fragmentPopped) {
@@ -178,7 +178,7 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
             fragmentTransaction.replace(R.id.recycler_view, fragment);
             fragmentTransaction.addToBackStack(backStateName);
             fragmentTransaction.commit();
-        }*/
+        }
     }
 
 }
