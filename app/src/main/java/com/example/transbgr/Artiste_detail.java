@@ -54,50 +54,8 @@ public class Artiste_detail extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         view = inflater.inflate(R.layout.artiste_detail_fragment, container, false);
-
-        // STEP 2 : access the DB...
-        mFireDataBase = FirebaseDatabase.getInstance();
-
-        // STEP 2.1: and from the DB, get a reference on the child node "artistes"
-        mArtistesDatabaseReference = mFireDataBase.getReference();
-
-        // STEP 2.2: get the recycler view
-        recyclerView = view.findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-
-        // STEP 2.3: create and set the adapter
-        artistes = new ArrayList<>();
-        mAdapter = new ArtistesAdapter(getContext(), artistes, this);
-        recyclerView.setAdapter(mAdapter);
-
-        // STEP 3: enable adding a artiste to Firebase
-        activateAddingArtiste();
-
-        // STEP 4: listen to any change on the DB
-        enableUpdatesFromDB();
-
-        // STEP 5: Enable removing a artiste
-        activateRemovingArtiste();
-
         return view;
+
+
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        // TODO: Use the ViewModel
-    }
-
-    public void onArtisteSpotifySelected(Artiste artiste) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(artiste.getFields().getSpotify()));
-        intent.putExtra(Intent.EXTRA_REFERRER,
-                Uri.parse("android-app://" + getContext().getPackageName()));
-        startActivity(intent);
-
-        //loadFragment(new Artiste_detail());
-    }
-
 }

@@ -2,6 +2,7 @@ package com.example.transbgr;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -16,6 +17,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +30,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
+    private TabLayout tablayout;
+    private ViewPager viewpager;
+    private ViewPagerAdapter adapter;
     private RecyclerView recyclerView;
     private ArtistesAdapter mAdapter;
     List<Artiste> artistes;
@@ -42,9 +48,30 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
-        Artiste_list mArtiste_list = new Artiste_list();
-        loadFragment(mArtiste_list);
+
+        tablayout = (TabLayout) findViewById(R.id.tablayout_id);
+        viewpager = (ViewPager) findViewById(R.id.viewpager_id);
+
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+        //Add fragment
+
+        adapter.AddFragment(new Artiste_list(),"Artistes");
+        adapter.AddFragment(new Artiste_detail(),"Maps");
+        //adapter.AddFragment (new Artiste_maps(),"3");
+        viewpager.setAdapter(adapter);
+        tablayout.setupWithViewPager(viewpager);
+
+        tablayout.getTabAt(0);
+        tablayout.getTabAt(1);
+        //tablayout.getTabAt(2);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setElevation(0);
+
+      getSupportActionBar().hide();
+      Artiste_list mArtiste_list = new Artiste_list();
+       loadFragment(mArtiste_list);
     }
 
     public void loadFragment(Fragment fragment) {
