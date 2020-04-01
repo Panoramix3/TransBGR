@@ -1,5 +1,6 @@
 package com.example.transbgr;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -40,13 +43,16 @@ import androidx.recyclerview.widget.RecyclerView;
         List<Artiste> artisteList;
         List<Artiste> artisteListFiltered;
         private ArtistesAdapterListener listener;
+        Dialog mDialog;
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
             public TextView name;
+            private LinearLayout item_artiste;
 
             public MyViewHolder(View view) {
                 super(view);
                 name = view.findViewById(R.id.name);
+                item_artiste = (LinearLayout) itemView.findViewById(R.id.detail_item);
 
 
 
@@ -67,14 +73,26 @@ import androidx.recyclerview.widget.RecyclerView;
             this.listener = listener;
             this.artisteList = artisteList;
             this.artisteListFiltered = artisteList;
+
         }
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
+            View itemView;
+
+            itemView = LayoutInflater.from(context)
                     .inflate(R.layout.artiste_item, parent, false);
 
-            return new MyViewHolder(itemView);
+            final MyViewHolder vHolder = new MyViewHolder(itemView);
+
+            vHolder.item_artiste.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "TestClick"+String.valueOf(vHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            return vHolder;
         }
 
         @Override
