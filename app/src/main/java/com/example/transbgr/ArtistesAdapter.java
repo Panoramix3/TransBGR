@@ -2,6 +2,8 @@ package com.example.transbgr;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,10 +87,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
             final MyViewHolder vHolder = new MyViewHolder(itemView);
 
+            // Dialog
+
+            mDialog = new Dialog(context);
+            mDialog.setContentView(R.layout.detail_contact);
+            mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
             vHolder.item_artiste.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    TextView name = (TextView) mDialog.findViewById(R.id.name);
+                    name.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getArtistes());
                     Toast.makeText(context, "TestClick"+String.valueOf(vHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+                    mDialog.show();
                 }
             });
 
