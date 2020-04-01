@@ -30,8 +30,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
-    private TabLayout tablayout;
-    private ViewPager viewpager;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private RecyclerView recyclerView;
     private ArtistesAdapter mAdapter;
@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tablayout = (TabLayout) findViewById(R.id.tablayout_id);
-        viewpager = (ViewPager) findViewById(R.id.viewpager_id);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout_id);
+        viewPager = (ViewPager) findViewById(R.id.viewpager_id);
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
@@ -59,19 +59,19 @@ public class MainActivity extends AppCompatActivity{
         adapter.AddFragment(new Artiste_list(),"Artistes");
         adapter.AddFragment(new Artiste_detail(),"Maps");
         //adapter.AddFragment (new Artiste_maps(),"3");
-        viewpager.setAdapter(adapter);
-        tablayout.setupWithViewPager(viewpager);
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
-        tablayout.getTabAt(0);
-        tablayout.getTabAt(1);
+        //tablayout.getTabAt(0);
+        //tablayout.getTabAt(1);
         //tablayout.getTabAt(2);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setElevation(0);
+        //actionBar.setElevation(0);
 
-      getSupportActionBar().hide();
+      //getSupportActionBar().hide();
       Artiste_list mArtiste_list = new Artiste_list();
-       loadFragment(mArtiste_list);
+      loadFragment(mArtiste_list);
     }
 
     public void loadFragment(Fragment fragment) {
