@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -98,7 +99,8 @@ import androidx.recyclerview.widget.RecyclerView;
             vHolder.item_artiste.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().get1ereSalle());
+                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().getFirstsalle());
+                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().getLikes());
                     Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getGeometry().getCoordinates().get(0)+" ; "+artisteList.get(vHolder.getAdapterPosition()).getGeometry().getCoordinates().get(1));
 
 
@@ -107,11 +109,25 @@ import androidx.recyclerview.widget.RecyclerView;
                     TextView annee = (TextView) mDialog.findViewById(R.id.detail_annee);
                     TextView pays = (TextView) mDialog.findViewById(R.id.detail_pays);
                     TextView premiere_date = (TextView) mDialog.findViewById(R.id.detail_1_date);
+                    Button like = (Button) mDialog.findViewById(R.id.like);
 
                     name.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getArtistes());
                     pays.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getOrigine_pays1());
                     annee.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getAnnee());
-                    premiere_date.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().get1ereDate());
+                    premiere_date.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getFirstdate());
+
+                    long counter = artisteList.get(vHolder.getAdapterPosition()).getFields().getLikes();
+                    like.setText("Like ("+counter+")");
+                    like.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            long counter = artisteList.get(vHolder.getAdapterPosition()).getFields().getLikes() + 1;
+                            artisteList.get(vHolder.getAdapterPosition()).getFields().setLikes(counter);
+                            like.setText("Like ("+counter+")");
+                            like.setClickable(false);
+                            listener.onLike(artisteList.get(vHolder.getAdapterPosition()));
+                        }
+                    });
 
                     mDialog.show();
                 }
@@ -201,5 +217,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
         public interface ArtistesAdapterListener {
             void onArtisteSelected(Artiste artiste);
+            void onLike(Artiste artiste);
         }
 }

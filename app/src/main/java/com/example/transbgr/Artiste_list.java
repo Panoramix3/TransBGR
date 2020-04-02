@@ -171,6 +171,16 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
         //loadFragment(new Artiste_detail());
     }
 
+    public void onLike(Artiste artiste){
+        // STEP 6.1: Updating the field in the class
+        artiste.getFields().setLikes(artiste.getFields().getLikes()+1);
+
+        mArtistesDatabaseReference.child(artiste.getUid()).child("fields").child("likes").setValue(artiste.getFields().getLikes());
+
+        // STEP 6.2: Updating the field on the Firebase DB
+        //mContactsDatabaseReference.child(contact.getUid()).child("likes").setValue(contact.getLikes());
+    }
+
     public void loadFragment(Fragment fragment) {
         String backStateName = fragment.getClass().getName();
         FragmentManager fragmentManager = getChildFragmentManager();

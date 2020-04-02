@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Fields {
 
-    private String _1ereDate;
+    private String firstdate;
     private Integer _1ereDateTimestamp;
-    private String _1ereSalle;
+    private String firstsalle;
     private String annee;
     private String artistes;
     private String couIsIlomember;
@@ -16,7 +16,7 @@ public class Fields {
     private String couIso2Code;
     private String couIso3Code;
     private String couOfficialLangCode;
-    private String couOnuCode;
+    private String cou_onu_code;
     private String couTextEn;
     private String couTextSp;
     private String deezer;
@@ -25,12 +25,23 @@ public class Fields {
     private String origine_pays1;
     private String spotify;
 
-    public String get1ereDate() {
-        return _1ereDate;
+    private long likes;
+
+
+    public String getFirstdate() {
+        return firstdate;
     }
 
-    public void set1ereDate(String _1ereDate) {
-        this._1ereDate = _1ereDate;
+    public void setFirstdate(String firstdate) {
+        this.firstdate = firstdate;
+    }
+
+    public String getFirstsalle() {
+        return firstsalle;
+    }
+
+    public void setFirstsalle(String firstsalle) {
+        this.firstsalle = firstsalle;
     }
 
     public Integer get1ereDateTimestamp() {
@@ -39,14 +50,6 @@ public class Fields {
 
     public void set1ereDateTimestamp(Integer _1ereDateTimestamp) {
         this._1ereDateTimestamp = _1ereDateTimestamp;
-    }
-
-    public String get1ereSalle() {
-        return _1ereSalle;
-    }
-
-    public void set1ereSalle(String _1ereSalle) {
-        this._1ereSalle = _1ereSalle;
     }
 
     public String getAnnee() {
@@ -105,12 +108,12 @@ public class Fields {
         this.couOfficialLangCode = couOfficialLangCode;
     }
 
-    public String getCouOnuCode() {
-        return couOnuCode;
+    public String getCou_onu_code() {
+        return cou_onu_code;
     }
 
-    public void setCouOnuCode(String couOnuCode) {
-        this.couOnuCode = couOnuCode;
+    public void setCou_onu_code(String cou_onu_code) {
+        this.cou_onu_code = cou_onu_code;
     }
 
     public String getCouTextEn() {
@@ -169,4 +172,11 @@ public class Fields {
         this.spotify = spotify;
     }
 
+    public long getLikes() {
+        return likes;
+    }
+
+    public void setLikes(long likes) {
+        this.likes = likes;
+    }
 }
