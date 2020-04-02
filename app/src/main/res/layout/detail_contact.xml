@@ -90,7 +90,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:text="Spotify"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:id="@+id/spotify"/>
 
         <Button
             android:padding="20dp"

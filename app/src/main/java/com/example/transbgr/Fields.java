@@ -11,13 +11,13 @@ public class Fields {
     private String firstsalle;
     private String annee;
     private String artistes;
-    private String couIsIlomember;
-    private String couIsReceivingQuest;
-    private String couIso2Code;
-    private String couIso3Code;
-    private String couOfficialLangCode;
+    private String cou_is_ilomember;
+    private String cou_is_receiving_quest;
+    private String cou_iso2_code;
+    private String cou_iso3_code;
+    private String cou_official_lang_code;
     private String cou_onu_code;
-    private String couTextEn;
+    private String cou_text_en;
     private String couTextSp;
     private String deezer;
     private String edition;
@@ -36,20 +36,20 @@ public class Fields {
         this.firstdate = firstdate;
     }
 
+    public Integer get_1ereDateTimestamp() {
+        return _1ereDateTimestamp;
+    }
+
+    public void set_1ereDateTimestamp(Integer _1ereDateTimestamp) {
+        this._1ereDateTimestamp = _1ereDateTimestamp;
+    }
+
     public String getFirstsalle() {
         return firstsalle;
     }
 
     public void setFirstsalle(String firstsalle) {
         this.firstsalle = firstsalle;
-    }
-
-    public Integer get1ereDateTimestamp() {
-        return _1ereDateTimestamp;
-    }
-
-    public void set1ereDateTimestamp(Integer _1ereDateTimestamp) {
-        this._1ereDateTimestamp = _1ereDateTimestamp;
     }
 
     public String getAnnee() {
@@ -68,44 +68,44 @@ public class Fields {
         this.artistes = artistes;
     }
 
-    public String getCouIsIlomember() {
-        return couIsIlomember;
+    public String getCou_is_ilomember() {
+        return cou_is_ilomember;
     }
 
-    public void setCouIsIlomember(String couIsIlomember) {
-        this.couIsIlomember = couIsIlomember;
+    public void setCou_is_ilomember(String cou_is_ilomember) {
+        this.cou_is_ilomember = cou_is_ilomember;
     }
 
-    public String getCouIsReceivingQuest() {
-        return couIsReceivingQuest;
+    public String getCou_is_receiving_quest() {
+        return cou_is_receiving_quest;
     }
 
-    public void setCouIsReceivingQuest(String couIsReceivingQuest) {
-        this.couIsReceivingQuest = couIsReceivingQuest;
+    public void setCou_is_receiving_quest(String cou_is_receiving_quest) {
+        this.cou_is_receiving_quest = cou_is_receiving_quest;
     }
 
-    public String getCouIso2Code() {
-        return couIso2Code;
+    public String getCou_iso2_code() {
+        return cou_iso2_code;
     }
 
-    public void setCouIso2Code(String couIso2Code) {
-        this.couIso2Code = couIso2Code;
+    public void setCou_iso2_code(String cou_iso2_code) {
+        this.cou_iso2_code = cou_iso2_code;
     }
 
-    public String getCouIso3Code() {
-        return couIso3Code;
+    public String getCou_iso3_code() {
+        return cou_iso3_code;
     }
 
-    public void setCouIso3Code(String couIso3Code) {
-        this.couIso3Code = couIso3Code;
+    public void setCou_iso3_code(String cou_iso3_code) {
+        this.cou_iso3_code = cou_iso3_code;
     }
 
-    public String getCouOfficialLangCode() {
-        return couOfficialLangCode;
+    public String getCou_official_lang_code() {
+        return cou_official_lang_code;
     }
 
-    public void setCouOfficialLangCode(String couOfficialLangCode) {
-        this.couOfficialLangCode = couOfficialLangCode;
+    public void setCou_official_lang_code(String cou_official_lang_code) {
+        this.cou_official_lang_code = cou_official_lang_code;
     }
 
     public String getCou_onu_code() {
@@ -116,12 +116,12 @@ public class Fields {
         this.cou_onu_code = cou_onu_code;
     }
 
-    public String getCouTextEn() {
-        return couTextEn;
+    public String getCou_text_en() {
+        return cou_text_en;
     }
 
-    public void setCouTextEn(String couTextEn) {
-        this.couTextEn = couTextEn;
+    public void setCou_text_en(String cou_text_en) {
+        this.cou_text_en = cou_text_en;
     }
 
     public String getCouTextSp() {

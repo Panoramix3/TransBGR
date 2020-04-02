@@ -181,6 +181,23 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
         //mContactsDatabaseReference.child(contact.getUid()).child("likes").setValue(contact.getLikes());
     }
 
+    @Override
+    public void onSpotify(Artiste artiste) {
+        if(artiste.getFields().getSpotify() != null){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(artiste.getFields().getSpotify()));
+            intent.putExtra(Intent.EXTRA_REFERRER,
+                    Uri.parse("android-app://" + getContext().getPackageName()));
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(getContext(), "Spotify indisponible", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onDeezer(Artiste artiste) {}
+
     public void loadFragment(Fragment fragment) {
         String backStateName = fragment.getClass().getName();
         FragmentManager fragmentManager = getChildFragmentManager();

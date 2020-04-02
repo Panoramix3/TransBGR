@@ -109,6 +109,7 @@ import androidx.recyclerview.widget.RecyclerView;
                     TextView annee = (TextView) mDialog.findViewById(R.id.detail_annee);
                     TextView pays = (TextView) mDialog.findViewById(R.id.detail_pays);
                     TextView premiere_date = (TextView) mDialog.findViewById(R.id.detail_1_date);
+                    Button spotify = (Button) mDialog.findViewById(R.id.spotify);
                     Button like = (Button) mDialog.findViewById(R.id.like);
 
                     name.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getArtistes());
@@ -126,6 +127,13 @@ import androidx.recyclerview.widget.RecyclerView;
                             like.setText("Like ("+counter+")");
                             like.setClickable(false);
                             listener.onLike(artisteList.get(vHolder.getAdapterPosition()));
+                        }
+                    });
+
+                    spotify.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            listener.onSpotify(artisteList.get(vHolder.getAdapterPosition()));
                         }
                     });
 
@@ -218,5 +226,7 @@ import androidx.recyclerview.widget.RecyclerView;
         public interface ArtistesAdapterListener {
             void onArtisteSelected(Artiste artiste);
             void onLike(Artiste artiste);
+            void onSpotify(Artiste artiste);
+            void onDeezer(Artiste artiste);
         }
 }
