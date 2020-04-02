@@ -98,14 +98,17 @@ import androidx.recyclerview.widget.RecyclerView;
             vHolder.item_artiste.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().getOriginePays1());
+                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().get1ereSalle());
+                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getGeometry().getCoordinates().get(0)+" ; "+artisteList.get(vHolder.getAdapterPosition()).getGeometry().getCoordinates().get(1));
+
+
 
                     TextView name = (TextView) mDialog.findViewById(R.id.detail_name);
                     TextView annee = (TextView) mDialog.findViewById(R.id.detail_annee);
                     TextView pays = (TextView) mDialog.findViewById(R.id.detail_pays);
 
                     name.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getArtistes());
-                    pays.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getCouOnuCode());
+                    pays.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getOrigine_pays1());
                     annee.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getAnnee());
 
                     mDialog.show();

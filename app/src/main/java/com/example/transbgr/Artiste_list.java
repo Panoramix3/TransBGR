@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,6 +106,7 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Artiste artiste = dataSnapshot.getValue(Artiste.class);
+                    Log.v("CHILDADDED", artiste.toString());
                     // don't forget to set the key to identify the Artiste!
                     artiste.setUid(dataSnapshot.getKey());
                     artistes.add(artiste);
