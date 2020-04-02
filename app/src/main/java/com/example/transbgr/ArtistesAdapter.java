@@ -106,10 +106,12 @@ import androidx.recyclerview.widget.RecyclerView;
                     TextView name = (TextView) mDialog.findViewById(R.id.detail_name);
                     TextView annee = (TextView) mDialog.findViewById(R.id.detail_annee);
                     TextView pays = (TextView) mDialog.findViewById(R.id.detail_pays);
+                    TextView premiere_date = (TextView) mDialog.findViewById(R.id.detail_1_date);
 
                     name.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getArtistes());
                     pays.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getOrigine_pays1());
                     annee.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getAnnee());
+                    premiere_date.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().get1ereDate());
 
                     mDialog.show();
                 }
