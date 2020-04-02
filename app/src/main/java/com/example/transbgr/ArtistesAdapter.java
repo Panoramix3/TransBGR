@@ -98,10 +98,16 @@ import androidx.recyclerview.widget.RecyclerView;
             vHolder.item_artiste.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().getOriginePays1());
 
-                    TextView name = (TextView) mDialog.findViewById(R.id.name);
+                    TextView name = (TextView) mDialog.findViewById(R.id.detail_name);
+                    TextView annee = (TextView) mDialog.findViewById(R.id.detail_annee);
+                    TextView pays = (TextView) mDialog.findViewById(R.id.detail_pays);
+
                     name.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getArtistes());
-                    Toast.makeText(context, "TestClick"+String.valueOf(vHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+                    pays.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getCouOnuCode());
+                    annee.setText(artisteList.get(vHolder.getAdapterPosition()).getFields().getAnnee());
+
                     mDialog.show();
                 }
             });

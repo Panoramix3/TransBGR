@@ -100,4 +100,17 @@ public class Artiste {
     public void setUid(String uid) {
         Uid = uid;
     }
+
+    public String toString(){
+        if (this.fields != null) {
+            return "Nom : " + this.fields.getArtistes() +
+                    "\nSpotify : " + this.fields.getSpotify() +
+                    "\nDeezer : " + this.fields.getDeezer() +
+                    "\nAnnée : " + this.fields.getAnnee() +
+                    "\nOrigine (pays) : " + this.fields.getOriginePays1() +
+                    "\nUId : " + this.getUid();
+        } else {
+            return "Erreur lors de l'affichage des informations concernant l'artiste";
+        }
+    }
 }
