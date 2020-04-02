@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Fields {
 
-    private String firstdate;
-    private Integer _1ereDateTimestamp;
-    private String firstsalle;
+    private String _1ere_date;
+    private Integer _1ere_date_timestamp;
+    private String _1ere_salle;
     private String annee;
     private String artistes;
     private String cou_is_ilomember;
@@ -28,28 +28,28 @@ public class Fields {
     private long likes;
 
 
-    public String getFirstdate() {
-        return firstdate;
+    public String get_1ere_date() {
+        return _1ere_date;
     }
 
-    public void setFirstdate(String firstdate) {
-        this.firstdate = firstdate;
+    public void set_1ere_date(String _1ere_date) {
+        this._1ere_date = _1ere_date;
     }
 
-    public Integer get_1ereDateTimestamp() {
-        return _1ereDateTimestamp;
+    public Integer get_1ere_date_timestamp() {
+        return _1ere_date_timestamp;
     }
 
-    public void set_1ereDateTimestamp(Integer _1ereDateTimestamp) {
-        this._1ereDateTimestamp = _1ereDateTimestamp;
+    public void set_1ere_date_timestamp(Integer _1ere_date_timestamp) {
+        this._1ere_date_timestamp = _1ere_date_timestamp;
     }
 
-    public String getFirstsalle() {
-        return firstsalle;
+    public String get_1ere_salle() {
+        return _1ere_salle;
     }
 
-    public void setFirstsalle(String firstsalle) {
-        this.firstsalle = firstsalle;
+    public void set_1ere_salle(String _1ere_salle) {
+        this._1ere_salle = _1ere_salle;
     }
 
     public String getAnnee() {
