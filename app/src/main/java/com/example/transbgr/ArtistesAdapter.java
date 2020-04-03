@@ -101,7 +101,7 @@ import androidx.recyclerview.widget.RecyclerView;
                 public void onClick(View v) {
                     Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().get_1ere_salle());
                     Log.v("CLICKED", ""+artisteList.get(vHolder.getAdapterPosition()).getFields().getLikes());
-                    
+
 
 
                     TextView name = (TextView) mDialog.findViewById(R.id.detail_name);

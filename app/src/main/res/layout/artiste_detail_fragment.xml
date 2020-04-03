@@ -7,7 +7,11 @@
     android:background="@color/backgroundfragment"
     tools:context=".Artiste_detail">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/contact_recyclerview">
@@ -32,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/artiste_detail_name" />
-        -->
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </LinearLayout>

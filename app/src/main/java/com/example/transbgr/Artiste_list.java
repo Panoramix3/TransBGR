@@ -173,7 +173,7 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
 
     public void onLike(Artiste artiste){
         // STEP 6.1: Updating the field in the class
-        artiste.getFields().setLikes(artiste.getFields().getLikes()+1);
+        artiste.getFields().setLikes(artiste.getFields().getLikes());
 
         mArtistesDatabaseReference.child(artiste.getUid()).child("fields").child("likes").setValue(artiste.getFields().getLikes());
 
