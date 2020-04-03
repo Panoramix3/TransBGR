@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private ArtistesAdapter mAdapter;
     List<Artiste> artistes;
+    boolean loading = true;
 
     // STEP 1 : make a reference to the database...
     private FirebaseDatabase mFireDataBase;
@@ -86,7 +87,19 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
+    public List<Artiste> getArtistes() {
+        return artistes;
+    }
 
+    public void setArtistes(List<Artiste> artistes) {
+        this.artistes = artistes;
+    }
 
+    public boolean isLoading() {
+        return loading;
+    }
 
+    public void setLoading(boolean loading) {
+        this.loading = loading;
+    }
 }

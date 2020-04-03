@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,12 +22,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +85,7 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
 
         // STEP 5: Enable removing a artiste
         activateRemovingArtiste();
+        ((MainActivity)getActivity()).setArtistes(artistes);
 
         return view;
     }
@@ -106,7 +114,6 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Artiste artiste = dataSnapshot.getValue(Artiste.class);
-                    Log.v("CHILDADDED", artiste.toString());
                     // don't forget to set the key to identify the Artiste!
                     artiste.setUid(dataSnapshot.getKey());
                     artistes.add(artiste);
@@ -198,16 +205,32 @@ public class Artiste_list extends Fragment implements ArtistesAdapter.ArtistesAd
     @Override
     public void onDeezer(Artiste artiste) {}
 
-    public void loadFragment(Fragment fragment) {
-        String backStateName = fragment.getClass().getName();
-        FragmentManager fragmentManager = getChildFragmentManager();
-        boolean fragmentPopped = fragmentManager.popBackStackImmediate(backStateName, 0);
-        if (!fragmentPopped) {
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.recycler_view, fragment);
-            fragmentTransaction.addToBackStack(backStateName);
-            fragmentTransaction.commit();
+    /*public void createJson(List<Artiste> artistes){
+        JSONObject json = new JSONObject();
+        for(Artiste a : artistes){
+            JSONObject artisteJson = new JSONObject();
+            try {
+                if(a.getGeometry().getCoordinates() != null){
+                    artisteJson.put("name", a.getFields().getArtistes());
+                    artisteJson.put("lat", a.getGeometry().getCoordinates().get(0));
+                    artisteJson.put("lnt", a.getGeometry().getCoordinates().get(1));
+                    json.put("artiste", artisteJson);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try{
+                Log.v("JSON", "BEGIN");
+                FileOutputStream fileOutputStream = getContext().openFileOutput("artistegeo", Context.MODE);
+                fileOutputStream.write(json.toString().getBytes(), 0, json.toString().length());
+                Log.v("JSON", "OK");
+                fileOutputStream.close();
+            }
+            catch (IOException e){
+
+            }
         }
-    }
+    }*/
 
 }
